@@ -27,3 +27,8 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Window
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Content\m_gun.wma
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Content\s_gun.xnb
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Content\4.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Content\meteor.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\System.Text.Json.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\System.Text.Json.xml
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Newtonsoft.Json.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Newtonsoft.Json.xml

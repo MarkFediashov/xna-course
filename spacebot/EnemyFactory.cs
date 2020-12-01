@@ -17,16 +17,23 @@ namespace Game1
         static Game game;
         static Texture2D enemyTexture;
         static Random rand = new Random();
-        public List<Enemy> enemies;
-        public EnemyFactory(Game g)
+        public List<IColliding> enemies;
+        public EnemyFactory(Game g, List<IColliding> collidingList)
         {
             game = g;
             enemyTexture = game.Content.Load<Texture2D>("e1");
-            enemies = new List<Enemy>();
+            enemies = collidingList;
         }
         public Enemy CreateEnemy()
         {
             Vector2 v = new Vector2(rand.Next() % 500, 15);
+            var e = new Enemy(game, enemyTexture, v);
+            enemies.Add(e);
+            return e;
+        }
+
+        public Enemy CreateEnemy(Vector2 v)
+        {
             var e = new Enemy(game, enemyTexture, v);
             enemies.Add(e);
             return e;

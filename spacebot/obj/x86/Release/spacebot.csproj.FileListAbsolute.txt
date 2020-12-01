@@ -26,3 +26,9 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Window
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Release\SharpDX.XInput.xml
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\obj\x86\Release\spacebot.exe
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\obj\x86\Release\spacebot.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\obj\x86\Release\spacebot.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Release\Content\meteor.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Release\Newtonsoft.Json.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Release\System.Text.Json.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Release\Newtonsoft.Json.xml
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Release\System.Text.Json.xml

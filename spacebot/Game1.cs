@@ -3,12 +3,14 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
 
-using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game1;
+using spacebot.map_service;
+using spacebot;
 namespace Game1
 {
 
@@ -16,15 +18,18 @@ namespace Game1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        MovableComponent hero;
+        Hero hero;
         BackgroundImage background;
         EnemyFactory enemyFactory;
+        CometFactory cometFactory;
+        MapBuildingService mapBuilder;
+        uint score;
+
         public BulletFactory bulletFactory;
-        public List<Enemy> enemies;
+        public List<IColliding> collidableItems = new List<IColliding>();
         readonly int enemyAmount = 15;
 
         public SoundEffect machinegunSound;
-        public SoundEffect s;
         public SoundEffect shotgunSound;
 
         public Game1()
@@ -43,18 +48,22 @@ namespace Game1
 
         protected override void LoadContent()
         {
-            enemyFactory = new EnemyFactory(this);
-            bulletFactory = new BulletFactory(this);
-            enemies = enemyFactory.enemies;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Services.AddService(typeof(SpriteBatch), spriteBatch);
             machinegunSound = Content.Load<SoundEffect>("m_gun");
             shotgunSound = Content.Load<SoundEffect>("s_gun");
             background = new BackgroundImage(this, Content.Load<Texture2D>("background"));
-            hero = new MovableComponent(this, Content.Load<Texture2D>("hero"), new Vector2(12, 650));
-            s = Content.Load<SoundEffect>("m_gun");
-            for (int i = 0; i < enemyAmount; i++)
-                enemyFactory.CreateEnemy();
+
+            enemyFactory = new EnemyFactory(this, collidableItems);
+            cometFactory = new CometFactory(this, Content.Load<Texture2D>("meteor"));
+            bulletFactory = new BulletFactory(this);
+            hero = new Hero(this, Content.Load<Texture2D>("hero"), new Vector2(12, 650));
+
+            StreamReader file = File.OpenText("lvl1.txt");
+
+            mapBuilder = new MapBuildingService(file, enemyFactory, cometFactory);
+
+            mapBuilder.BuildMap();
 
         }
 
@@ -78,10 +87,7 @@ namespace Game1
 
             spriteBatch.Begin();
             base.Draw(gameTime);
-            spriteBatch.End();
-
-
-            
+            spriteBatch.End(); 
         }
     }
 }

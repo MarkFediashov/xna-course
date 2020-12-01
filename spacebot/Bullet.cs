@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Game1
 {
-    public class Bullet : MovableComponent
+    public class Bullet : AbstractMovableComponent
     {
         protected float dx;
         protected float dy;
@@ -34,29 +34,43 @@ namespace Game1
             {
                 Game.Components.Remove(this);
             }
-            List<Enemy> died = new List<Enemy>();
-            List<Enemy> allEnemies = (Game as Game1).enemies;
-            List<Bullet> bulletRemove = new List<Bullet>();
+
+            List<IColliding> died = new List<IColliding>();
+            List<IColliding> allEnemies = (Game as Game1).collidableItems;
+            bool bulletHasCollide = false;
             foreach (var enemy in allEnemies)
             {
-                Rectangle r1 = enemy.texture.Bounds;
-                Point p = enemy.getPos().ToPoint();
-                r1.Offset(p.X, p.Y);
-                Rectangle r2 = texture.Bounds;
-                r2.Offset(position);
+                Rectangle r1 = enemy.GetBounds();
+                Rectangle r2 = GetBounds();
                 if (r1.Intersects(r2))
                 {
-                    died.Add(enemy);
-                    break;
+                    enemy.OnHitNotify();
+                    if (enemy.ShouldDisposeOnCollideWithBullet())
+                    {
+                        died.Add(enemy);
+                    }
+                    if (enemy.ShouldDisposeBullet())
+                    {
+                        bulletHasCollide = true;
+                        break;
+                    }
                 }
             }
-            (Game as Game1).enemies.RemoveAll((Enemy e)=>
-             {
-                 bool flag = died.Contains(e);
-                 if (flag)
-                    Game.Components.Remove(e);
-                 return flag;
-             });
+            died.ForEach((element) =>
+            {
+                (Game as Game1).collidableItems.Remove(element);
+                Game.Components.Remove(element as IGameComponent);
+            });
+
+            if (bulletHasCollide)
+            {
+                Game.Components.Remove(this);
+            }
+        }
+
+        public override bool ShouldDisposeOnCollideWithBullet()
+        {
+            throw new NotImplementedException();
         }
     }
 }
