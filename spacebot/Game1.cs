@@ -63,6 +63,8 @@ namespace Game1
 
             mapBuilder = new MapBuildingService(file, enemyFactory, cometFactory);
 
+            AnimationFactory.Initialize(this, Content.Load<Texture2D>("explosion"), Content.Load<SoundEffect>("death"));
+
             mapBuilder.BuildMap();
 
         }

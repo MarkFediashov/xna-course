@@ -60,6 +60,7 @@ namespace Game1
             {
                 (Game as Game1).collidableItems.Remove(element);
                 Game.Components.Remove(element as IGameComponent);
+                (element as DrawableGameComponent).Dispose();
             });
 
             if (bulletHasCollide)

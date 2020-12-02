@@ -30,7 +30,7 @@ namespace Game1
         }
         public Bullet CreateShrapneel(Vector2 start, Vector2 end)
         {
-            return new Bullet(game, shrepnelTexture, start, end, 15f);
+            return new Bullet(game, shrepnelTexture, start, end, 25f);
         }
     }
 }

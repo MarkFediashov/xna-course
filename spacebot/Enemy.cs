@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework;
 
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using spacebot;
 
 namespace Game1
 {
@@ -45,6 +46,13 @@ namespace Game1
         public override bool ShouldDisposeBullet()
         {
             return true;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            var temp = new Vector2(position.X - 50, position.Y - 70);
+            AnimationFactory.SpawnAnimation(temp);
+            base.Dispose(disposing);
         }
 
     }

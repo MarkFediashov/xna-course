@@ -7,7 +7,9 @@
     <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/1.png</File>
     <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/2.png</File>
     <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/4.png</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/death.wav</File>
     <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/e1.png</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/explosion.png</File>
     <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/m_gun.mp3</File>
     <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/meteor.png</File>
     <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/s_gun.wav</File>
@@ -16,6 +18,8 @@
   <DestFiles>
     <File>hero.png</File>
     <File>background.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
