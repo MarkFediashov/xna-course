@@ -79,6 +79,13 @@
 /processorParam:TextureFormat=Color
 /build:explosion.png
 
+#begin font.spritefont
+/importer:FontDescriptionImporter
+/processor:LocalizedFontProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:font.spritefont
+
 #begin m_gun.mp3
 /importer:Mp3Importer
 /processor:SoundEffectProcessor

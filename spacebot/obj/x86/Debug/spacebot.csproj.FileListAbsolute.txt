@@ -34,3 +34,4 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Window
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Newtonsoft.Json.xml
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Content\death.xnb
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Content\explosion.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Content\font.xnb

@@ -11,15 +11,26 @@ namespace Game1
     public class Hero : AbstractMovableComponent
     {
         Weapron currentWeapron;
-        List<Weapron> weapron;
+        private List<Weapron> weapron;
+        public List<Weapron> Weapron
+        {
+            private get
+            {
+                return weapron;
+            }
+            set
+            {
+                weapron = value;
+                currentWeapron = weapron[0];
+            }
+        }
         float reload = 0f;
 
         private readonly float baseVelocity = 23;
 
         public Hero(Game game, Texture2D texture, Vector2 position) : base(game, texture, position)
         {
-            weapron = new List<Weapron>() { new MachineGun((game as Game1).machinegunSound), new ShotGun((game as Game1).shotgunSound)};
-            currentWeapron = weapron[0];
+  
         }
 
         public override void Initialize()
@@ -125,6 +136,11 @@ namespace Game1
             SpriteBatch batch = (SpriteBatch)Game.Services.GetService(typeof(SpriteBatch));
             batch.Draw(texture, position, color: Color.White);
             base.Draw(gameTime);
+        }
+
+        public void SetPosition(Vector2 position)
+        {
+            this.position = position;
         }
 
     }

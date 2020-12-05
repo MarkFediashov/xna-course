@@ -12,7 +12,7 @@ namespace Game1
     public class ShotGun : Weapron
     {
         Random rand;
-        public ShotGun(SoundEffect sound) : base(sound)
+        public ShotGun(SoundEffect sound, int ammunition) : base(sound, ammunition)
         {
             rand = new Random();
             reloadDelay = 1500;

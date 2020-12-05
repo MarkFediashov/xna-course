@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game1;
+using spacebot.map_service;
 
 using Microsoft.Xna.Framework;
 
@@ -17,6 +18,10 @@ namespace Game1
     {
         private float velocity = 30;
         float direction = +1;
+
+        public delegate void OnEnemyDispose();
+        static public event OnEnemyDispose OnDisposeEvent;
+
         public Enemy(Game game, Texture2D texture, Vector2 position) : base(game, texture, position)
         {
 
@@ -52,6 +57,7 @@ namespace Game1
         {
             var temp = new Vector2(position.X - 50, position.Y - 70);
             AnimationFactory.SpawnAnimation(temp);
+            OnDisposeEvent.Invoke();
             base.Dispose(disposing);
         }
 

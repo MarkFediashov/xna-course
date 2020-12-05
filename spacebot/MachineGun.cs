@@ -13,7 +13,7 @@ namespace Game1
 {
     class MachineGun : Weapron
     {
-        public MachineGun(SoundEffect sound) : base(sound)
+        public MachineGun(SoundEffect sound, int ammunition) : base(sound, ammunition)
         {
             reloadDelay = 250;
         }

@@ -5,10 +5,7 @@ using Microsoft.Xna.Framework.Audio;
 
 using System.IO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Game1;
+using Microsoft.Xna.Framework.Content;
 using spacebot.map_service;
 using spacebot;
 namespace Game1
@@ -23,11 +20,15 @@ namespace Game1
         EnemyFactory enemyFactory;
         CometFactory cometFactory;
         MapBuildingService mapBuilder;
-        uint score;
+        SpriteFont font;
+        List<string> levelList = new List<string>() { "lvl1.txt", "lvl2.txt", "lvl3.txt" };
+        public List<Weapron> wList = new List<Weapron>();
+        public List<float> levelScore = new List<float>();
+        bool hasEnded = false;
+        int currentLevel = 0;
 
         public BulletFactory bulletFactory;
         public List<IColliding> collidableItems = new List<IColliding>();
-        readonly int enemyAmount = 15;
 
         public SoundEffect machinegunSound;
         public SoundEffect shotgunSound;
@@ -57,16 +58,32 @@ namespace Game1
             enemyFactory = new EnemyFactory(this, collidableItems);
             cometFactory = new CometFactory(this, Content.Load<Texture2D>("meteor"));
             bulletFactory = new BulletFactory(this);
-            hero = new Hero(this, Content.Load<Texture2D>("hero"), new Vector2(12, 650));
-
-            StreamReader file = File.OpenText("lvl1.txt");
-
-            mapBuilder = new MapBuildingService(file, enemyFactory, cometFactory);
-
+            
             AnimationFactory.Initialize(this, Content.Load<Texture2D>("explosion"), Content.Load<SoundEffect>("death"));
+            hero = new Hero(this, Content.Load<Texture2D>("hero"), new Vector2(12, 650));
+            LoadNewLevel();
 
-            mapBuilder.BuildMap();
+            font = Content.Load<SpriteFont>("font");
 
+            Services.AddService(typeof(MapBuildingService), mapBuilder);
+
+        }
+
+        public void LoadNewLevel()
+        {
+            if (currentLevel < levelList.Count)
+            {
+                StreamReader file = File.OpenText(levelList[currentLevel++]);
+                mapBuilder = new MapBuildingService(file, enemyFactory, cometFactory, this);
+                mapBuilder.BuildMap(wList);
+                file.Close();
+                hero.SetPosition(new Vector2(12, 650));
+                hero.Weapron = wList;
+            }
+            else
+            {
+                hasEnded = true;
+            }
         }
 
         protected override void UnloadContent()
@@ -85,11 +102,33 @@ namespace Game1
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
             base.Draw(gameTime);
+            if (hasEnded)
+            {
+                Vector2 position = new Vector2(30, 30);
+                int counter = 1;
+                float total = 0f;
+                foreach(float s in levelScore)
+                {
+                    string lineStr = "Level #" + counter.ToString() + "      " + s.ToString();
+                    total += s;
+                    spriteBatch.DrawString(font, lineStr, position, Color.Azure);
+                    position.Y += 30;
+                    counter++;
+                }
+                position.Y += 30;
+                string totalStr = "Total            " + total.ToString();
+                spriteBatch.DrawString(font, totalStr, position, Color.Azure);
+            }
             spriteBatch.End(); 
+        }
+
+        public void CompleteLevel()
+        {
+            this.collidableItems.Clear();
         }
     }
 }

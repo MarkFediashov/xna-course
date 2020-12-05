@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
 
 namespace Game1
@@ -15,22 +10,26 @@ namespace Game1
     public abstract class Weapron
     {
         protected int reloadDelay;
+        protected int ammunition;
         private bool reloadFlag = false;
         SoundEffect sound;
 
-        protected Weapron(SoundEffect sound)
+        protected Weapron(SoundEffect sound, int ammunition = 10)
         {
             this.sound = sound;
+            this.ammunition = ammunition;
         }
 
         public void shot(Game1 g, Vector2 start, Vector2 end)
         {
-            if (!reloadFlag)
+            if (!reloadFlag && ammunition > 0)
             {
                 reloadFlag = true;
                 shotImpl(g, start, end);
                 sound.Play();
                 startReload();
+
+                ammunition--;
             }
         }
 
@@ -45,6 +44,11 @@ namespace Game1
             };
 
             Task.Factory.StartNew(onReload);
+        }
+
+        public int GetAvailableAmmunition()
+        {
+            return ammunition;
         }
     }
 }
