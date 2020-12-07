@@ -2,7 +2,7 @@
   "LevelName":"lvl2",
   "Timeout":132,
   "Weapron":{
-    "automata":20,
+    "automata":40,
     "shotgun":3
   },
   "MapLayout":[
