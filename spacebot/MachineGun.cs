@@ -15,7 +15,7 @@ namespace Game1
     {
         public MachineGun(SoundEffect sound, int ammunition) : base(sound, ammunition)
         {
-            reloadDelay = 250;
+            reloadDelay = 210;
         }
         protected override void shotImpl(Game1 g, Vector2 start, Vector2 end)
         {

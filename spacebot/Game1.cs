@@ -15,12 +15,12 @@ namespace Game1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Hero hero;
+        public Hero hero { get; private set; }
         BackgroundImage background;
         EnemyFactory enemyFactory;
         CometFactory cometFactory;
         MapBuildingService mapBuilder;
-        SpriteFont font;
+        public SpriteFont font;
         List<string> levelList = new List<string>() { "lvl1.txt", "lvl2.txt", "lvl3.txt" };
         public List<Weapron> wList = new List<Weapron>();
         public List<float> levelScore = new List<float>();
@@ -58,6 +58,8 @@ namespace Game1
             enemyFactory = new EnemyFactory(this, collidableItems);
             cometFactory = new CometFactory(this, Content.Load<Texture2D>("meteor"));
             bulletFactory = new BulletFactory(this);
+
+            HUD hud = new HUD(this);
             
             AnimationFactory.Initialize(this, Content.Load<Texture2D>("explosion"), Content.Load<SoundEffect>("death"));
             hero = new Hero(this, Content.Load<Texture2D>("hero"), new Vector2(12, 650));
@@ -78,6 +80,7 @@ namespace Game1
                 mapBuilder.BuildMap(wList);
                 file.Close();
                 hero.SetPosition(new Vector2(12, 650));
+                hero.Refueling();
                 hero.Weapron = wList;
             }
             else

@@ -11,6 +11,7 @@ namespace Game1
     public class Hero : AbstractMovableComponent
     {
         Weapron currentWeapron;
+        public double Fuel { get; private set; }
         private List<Weapron> weapron;
         public List<Weapron> Weapron
         {
@@ -30,7 +31,7 @@ namespace Game1
 
         public Hero(Game game, Texture2D texture, Vector2 position) : base(game, texture, position)
         {
-  
+
         }
 
         public override void Initialize()
@@ -52,8 +53,11 @@ namespace Game1
             {
                 reload -= gameTime.ElapsedGameTime.Milliseconds;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Space))
+            if (Keyboard.GetState().IsKeyDown(Keys.Space) && Fuel > 0)
+            {
                 addedVelocity = 27;
+                Fuel -= gameTime.ElapsedGameTime.Milliseconds / 15;
+            }
             else
                 addedVelocity = 0;
 
@@ -141,6 +145,11 @@ namespace Game1
         public void SetPosition(Vector2 position)
         {
             this.position = position;
+        }
+
+        public void Refueling()
+        {
+            Fuel = 1000;
         }
 
     }

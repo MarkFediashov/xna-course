@@ -16,6 +16,7 @@ namespace Game1
         public Texture2D texture { get; set; }
         protected Vector2 position;
         public Vector2 Position => position;
+        protected SpriteBatch batch;
 
         protected double leftScreenBound;
         protected double rigthScreenBound;
@@ -30,6 +31,7 @@ namespace Game1
             rigthScreenBound = game.GraphicsDevice.Viewport.Width - 57;
             bottomScreenBound = game.GraphicsDevice.Viewport.Height - 57;
             addedVelocity = 0;
+            batch = (SpriteBatch)game.Services.GetService(typeof(SpriteBatch));
 
             game.Components.Add(this);
         }
@@ -49,7 +51,6 @@ namespace Game1
 
         public override void Draw(GameTime gameTime)
         {
-            SpriteBatch batch = (SpriteBatch)Game.Services.GetService(typeof(SpriteBatch));
             batch.Draw(texture, position, color: Color.White);
             base.Draw(gameTime);
         }
@@ -71,6 +72,12 @@ namespace Game1
         {
             return true;
         }
+
+        public bool IsInsideScreenBound()
+        {
+            return !(position.X >= rigthScreenBound || position.X <= 0 || position.Y >= bottomScreenBound || position.Y < 0);
+        }
+
         public Rectangle GetBounds()
         {
             return GetRectangleBounds();

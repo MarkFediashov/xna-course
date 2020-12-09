@@ -16,7 +16,7 @@ namespace Game1
 {
     public class Enemy : AbstractMovableComponent, IColliding
     {
-        private float velocity = 30;
+        protected float velocity = 30;
         float direction = +1;
 
         public delegate void OnEnemyDispose();
@@ -29,7 +29,7 @@ namespace Game1
 
         protected override void HandleInput(GameTime gameTime)
         {
-            if (position.X >= base.rigthScreenBound || position.X <= 0)
+            if (!IsInsideScreenBound())
             {
                 direction *= -1;
                 velocity += 1;

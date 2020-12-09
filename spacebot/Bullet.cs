@@ -24,8 +24,6 @@ namespace Game1
             dy = cos * velocity;
         }
 
-        
-
         protected override void HandleInput(GameTime gameTime)
         {
             position.X += dx;
