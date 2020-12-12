@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
 using spacebot.map_service;
 using spacebot;
+using spacebot.ui;
 namespace Game1
 {
 
@@ -22,8 +23,10 @@ namespace Game1
         MapBuildingService mapBuilder;
         public SpriteFont font;
         List<string> levelList = new List<string>() { "lvl1.txt", "lvl2.txt", "lvl3.txt" };
+        public string playerName;
         public List<Weapron> wList = new List<Weapron>();
         public List<float> levelScore = new List<float>();
+        HUD hud;
         bool hasEnded = false;
         int currentLevel = 0;
 
@@ -32,6 +35,7 @@ namespace Game1
 
         public SoundEffect machinegunSound;
         public SoundEffect shotgunSound;
+        public SoundEffect themeMusic;
 
         public Game1()
         {
@@ -51,24 +55,28 @@ namespace Game1
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Services.AddService(typeof(SpriteBatch), spriteBatch);
-            machinegunSound = Content.Load<SoundEffect>("m_gun");
-            shotgunSound = Content.Load<SoundEffect>("s_gun");
-            background = new BackgroundImage(this, Content.Load<Texture2D>("background"));
-
-            enemyFactory = new EnemyFactory(this, collidableItems);
-            cometFactory = new CometFactory(this, Content.Load<Texture2D>("meteor"));
-            bulletFactory = new BulletFactory(this);
-
-            HUD hud = new HUD(this);
-            
-            AnimationFactory.Initialize(this, Content.Load<Texture2D>("explosion"), Content.Load<SoundEffect>("death"));
-            hero = new Hero(this, Content.Load<Texture2D>("hero"), new Vector2(12, 650));
-            LoadNewLevel();
+            themeMusic = Content.Load<SoundEffect>("theme");
+            themeMusic.Play(volume: 0.1f, pitch:0, pan:0);   
 
             font = Content.Load<SpriteFont>("font");
 
-            Services.AddService(typeof(MapBuildingService), mapBuilder);
+            Menu menu = new Menu(this);
+            //Services.AddService(typeof(MapBuildingService), mapBuilder);
+        }
 
+        public void Startup()
+        {
+            machinegunSound = Content.Load<SoundEffect>("m_gun");
+            shotgunSound = Content.Load<SoundEffect>("s_gun");
+            background = new BackgroundImage(this, Content.Load<Texture2D>("background"));
+            enemyFactory = new EnemyFactory(this, collidableItems);
+            cometFactory = new CometFactory(this, Content.Load<Texture2D>("meteor"));
+            bulletFactory = new BulletFactory(this);
+            hud = new HUD(this);
+
+            AnimationFactory.Initialize(this, Content.Load<Texture2D>("explosion"), Content.Load<SoundEffect>("death"));
+            hero = new Hero(this, Content.Load<Texture2D>("hero"), new Vector2(12, 650));
+            LoadNewLevel();
         }
 
         public void LoadNewLevel()
@@ -105,8 +113,6 @@ namespace Game1
 
         protected override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.Clear(Color.CornflowerBlue);
-
             spriteBatch.Begin();
             base.Draw(gameTime);
             if (hasEnded)

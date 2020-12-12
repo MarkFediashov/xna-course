@@ -18,7 +18,6 @@ c:\users\user\documents\visual studio 2015\Projects\spacebot\spacebot\bin\Window
 c:\users\user\documents\visual studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
 c:\users\user\documents\visual studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 c:\users\user\documents\visual studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\SharpDX.XInput.xml
-c:\users\user\documents\visual studio 2015\Projects\spacebot\spacebot\obj\x86\Debug\spacebot.csprojResolveAssemblyReference.cache
 c:\users\user\documents\visual studio 2015\Projects\spacebot\spacebot\obj\x86\Debug\spacebot.exe
 c:\users\user\documents\visual studio 2015\Projects\spacebot\spacebot\obj\x86\Debug\spacebot.pdb
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Content\e1.xnb
@@ -38,3 +37,6 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Window
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Content\energy-bar-fill.xnb
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Content\energy-bar.xnb
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Content\ghost.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Content\theme.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Debug\Content\3.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\obj\x86\Debug\spacebot.csprojResolveAssemblyReference.cache

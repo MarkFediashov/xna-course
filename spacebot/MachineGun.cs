@@ -11,13 +11,13 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Game1
 {
-    class MachineGun : Weapron
+    public class MachineGun : Weapron
     {
         public MachineGun(SoundEffect sound, int ammunition) : base(sound, ammunition)
         {
             reloadDelay = 210;
         }
-        protected override void shotImpl(Game1 g, Vector2 start, Vector2 end)
+        public override void shotImpl(Game1 g, Vector2 start, Vector2 end)
         {
            g.bulletFactory.CreateBullet(start, end);
         }

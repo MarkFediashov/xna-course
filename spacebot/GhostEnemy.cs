@@ -32,6 +32,11 @@ namespace spacebot
                 DefineDirection();
                 position.X += (float)dx;
                 position.Y += (float)dy;
+                if (!IsInsideScreenBound())
+                {
+                    position.X -= (float)dx;
+                    position.Y -= (float)dy;
+                }
                 defined = true;
             }
             if (!defined)

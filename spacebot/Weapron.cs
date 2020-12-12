@@ -5,14 +5,18 @@ using Microsoft.Xna.Framework;
 
 using Microsoft.Xna.Framework.Audio;
 
+using spacebot.perk;
+
 namespace Game1
 {
+    delegate void Shot(Game1 g, Vector2 start, Vector2 end);
     public abstract class Weapron
     {
         protected int reloadDelay;
         protected int ammunition;
         private bool reloadFlag = false;
         SoundEffect sound;
+        IPerk<Weapron> perk;
 
         protected Weapron(SoundEffect sound, int ammunition = 10)
         {
@@ -20,20 +24,45 @@ namespace Game1
             this.ammunition = ammunition;
         }
 
+        public void InjectPerk(IPerk<Weapron> perk)
+        {
+            this.perk = perk;
+            perk.InjectWeapron(this);
+        }
+
+        public void alterShot(Game1 g, Vector2 start, Vector2 end)
+        {
+            if (perk != null)
+            {
+                shotActionStrategy(g, start, end, perk.AlterShootImpl);
+            }
+        }
+
         public void shot(Game1 g, Vector2 start, Vector2 end)
+        {
+            shotActionStrategy(g, start, end, shotImpl);
+        }
+
+        public void PlaySound()
+        {
+            sound.Play();
+        }
+
+        private void shotActionStrategy(Game1 g, Vector2 start, Vector2 end, Shot shotActionImpl)
         {
             if (!reloadFlag && ammunition > 0)
             {
                 reloadFlag = true;
-                shotImpl(g, start, end);
-                sound.Play();
+                shotActionImpl(g, start, end);
+                PlaySound();
                 startReload();
 
                 ammunition--;
             }
         }
 
-        abstract protected void shotImpl(Game1 g, Vector2 start, Vector2 end);
+
+        abstract public void shotImpl(Game1 g, Vector2 start, Vector2 end);
 
         private void startReload()
         {

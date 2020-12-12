@@ -11,14 +11,13 @@ namespace Game1
 {
     public class ShotGun : Weapron
     {
-        Random rand;
+        static Random rand = new Random();
         public ShotGun(SoundEffect sound, int ammunition) : base(sound, ammunition)
         {
-            rand = new Random();
             reloadDelay = 1500;
         }
 
-        protected override void shotImpl(Game1 g, Vector2 start, Vector2 end)
+        public override void shotImpl(Game1 g, Vector2 start, Vector2 end)
         {
             int random = rand.Next() % 7 + 5;
             for(int i = 0; i < random; i++)

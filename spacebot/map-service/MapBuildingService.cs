@@ -13,6 +13,8 @@ using Microsoft.Xna.Framework.Input;
 using Game1;
 using spacebot;
 
+using spacebot.perk;
+
 namespace spacebot.map_service
 { 
     public class MapBuildingService
@@ -73,7 +75,9 @@ namespace spacebot.map_service
                 WeapronBulletAmountDto w = level.Weapron;
                 weapronList.Clear();
                 weapronList.Add(new MachineGun(game.machinegunSound, w.Automata));
-                weapronList.Add(new ShotGun(game.shotgunSound, w.Shotgun));   
+                weapronList.Add(new ShotGun(game.shotgunSound, w.Shotgun));
+                weapronList[0].InjectPerk(new MachineGunPairPerk());
+                weapronList[1].InjectPerk(new ShotGunDoubleBarreledPerk());
             }
         }
 

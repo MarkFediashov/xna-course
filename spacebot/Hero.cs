@@ -25,7 +25,6 @@ namespace Game1
                 currentWeapron = weapron[0];
             }
         }
-        float reload = 0f;
 
         private readonly float baseVelocity = 23;
 
@@ -49,10 +48,6 @@ namespace Game1
         {
             Vector2 previousPosition = position;
             
-            if (reload > 0)
-            {
-                reload -= gameTime.ElapsedGameTime.Milliseconds;
-            }
             if (Keyboard.GetState().IsKeyDown(Keys.Space) && Fuel > 0)
             {
                 addedVelocity = 27;
@@ -107,11 +102,15 @@ namespace Game1
                 }
             }
             
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed && reload <= 0f)
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
                 var pos = Mouse.GetState().Position;
                 currentWeapron.shot(Game as Game1, position, pos.ToVector2());
-                reload = 250;
+            }
+            if (Mouse.GetState().RightButton == ButtonState.Pressed)
+            {
+                var pos = Mouse.GetState().Position;
+                currentWeapron.alterShot(Game as Game1, position, pos.ToVector2());
             }
             if (Keyboard.GetState().IsKeyDown(Keys.D2))
             {
