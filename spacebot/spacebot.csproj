@@ -90,6 +90,7 @@
     <Compile Include="ui\Menu.cs" />
     <Compile Include="ui\ResultSaveService.cs" />
     <Compile Include="ui\TextBox.cs" />
+    <Compile Include="ui\UserResultDto.cs" />
     <Compile Include="Weapron.cs" />
   </ItemGroup>
   <ItemGroup>

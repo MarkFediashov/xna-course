@@ -1,0 +1,1 @@
+[{"name":"MARKEnter","datetime":"13.12.2020","result":3315.625},{"name":"LOLEnter","datetime":"13.12.2020","result":1507.738037109375},{"name":"LAREnter","datetime":"13.12.2020","result":1634.057861328125}]

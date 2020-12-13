@@ -30,6 +30,8 @@ namespace Game1
         bool hasEnded = false;
         int currentLevel = 0;
 
+        public ResultSaveService resultRepository;
+
         public BulletFactory bulletFactory;
         public List<IColliding> collidableItems = new List<IColliding>();
 
@@ -76,6 +78,9 @@ namespace Game1
 
             AnimationFactory.Initialize(this, Content.Load<Texture2D>("explosion"), Content.Load<SoundEffect>("death"));
             hero = new Hero(this, Content.Load<Texture2D>("hero"), new Vector2(12, 650));
+
+            resultRepository = new ResultSaveService();
+
             LoadNewLevel();
         }
 
@@ -93,6 +98,15 @@ namespace Game1
             }
             else
             {
+                UserResultDto userResult = new UserResultDto();
+                userResult.name = playerName;
+                float data = 0.0f;
+                foreach(var v in levelScore)
+                {
+                    data += v;
+                }
+                userResult.result = data;
+                resultRepository.AddResult(userResult);
                 hasEnded = true;
             }
         }
