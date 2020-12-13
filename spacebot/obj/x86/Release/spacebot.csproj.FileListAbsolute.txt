@@ -39,3 +39,4 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Window
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Release\Content\font.xnb
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Release\Content\ghost.xnb
 C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Release\Content\theme.xnb
+C:\Users\User\Documents\Visual Studio 2015\Projects\spacebot\spacebot\bin\Windows\x86\Release\Content\3.xnb

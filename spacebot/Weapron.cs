@@ -79,5 +79,10 @@ namespace Game1
         {
             return ammunition;
         }
+
+        public void SetAmmunition(int val)
+        {
+            ammunition = val;
+        }
     }
 }

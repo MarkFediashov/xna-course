@@ -46,7 +46,7 @@ namespace spacebot.ui
         {
             if (firstTime)
             {
-                Thread.Sleep(1190);
+                Thread.Sleep(290);
                 firstTime = false;
                 return;
             }

@@ -16,19 +16,25 @@ namespace spacebot.ui
 {
     public class Menu : DrawableGameComponent
     {
-        Game1.Game1 game;
-        LauncherItem[] items = new LauncherItem[3];
+        protected Game1.Game1 game;
+        protected LauncherItem[] items;
         int activeIndex = 0;
 
         StringBuilder builder = new StringBuilder();
 
         bool enable = true;
-        public Menu(Game1.Game1 game): base(game)
+        public Menu(Game1.Game1 game) : base(game)
         {
             this.game = game;
             game.Components.Add(this);
+            FillItemList();
+        }
+
+        protected virtual void FillItemList()
+        {
+            items = new LauncherItem[3];
             items[0] = new LauncherItem(game, "Start", Startupt);
-            items[1] = new LauncherItem(game, "About", ()=> { });
+            items[1] = new LauncherItem(game, "About", () => { });
             items[2] = new LauncherItem(game, "Exit", Exit);
         }
 
@@ -45,6 +51,7 @@ namespace spacebot.ui
         private void Exit()
         {
             game.Exit();
+            LauncherItem.ResetAll();
         }
 
         private void Startupt()
@@ -59,18 +66,19 @@ namespace spacebot.ui
                 game.playerName = s;
                 game.Startup();
             });
+            LauncherItem.ResetAll();
         }
 
         public override void Update(GameTime gameTime)
         {
             bool updated = false;
-            if (Keyboard.GetState().IsKeyDown(Keys.Down) && activeIndex <= 1 && activeIndex >=0 && enable)
+            if (Keyboard.GetState().IsKeyDown(Keys.Down) && activeIndex <= items.Length - 2 && activeIndex >=0 && enable)
             {
                 updated = true;
                 items[++activeIndex].Activate();
                 Disable();
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Up) && activeIndex <= 2 && activeIndex >= 1 && enable)
+            if (Keyboard.GetState().IsKeyDown(Keys.Up) && activeIndex <= items.Length - 1 && activeIndex >= 1 && enable)
             {
                 updated = true;
                 items[--activeIndex].Activate();
@@ -78,7 +86,7 @@ namespace spacebot.ui
             }
             if (updated)
             {
-                if(activeIndex < 2)
+                if(activeIndex < items.Length - 1)
                 {
                     items[activeIndex + 1].Deactivatee();
                 }
@@ -88,9 +96,12 @@ namespace spacebot.ui
                 }
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && enable)
             {
                 items[activeIndex].Select();
+                Disable();
+                game.Components.Remove(this);
+                this.Dispose();
             }
 
         }

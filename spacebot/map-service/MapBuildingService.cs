@@ -17,7 +17,7 @@ using spacebot.perk;
 
 namespace spacebot.map_service
 { 
-    public class MapBuildingService
+    public class MapBuildingService : IMap
     {
         static readonly uint stepX = 80;
         static readonly uint stepY = 80;
@@ -69,15 +69,16 @@ namespace spacebot.map_service
                     }
                 }
             }
-
-            if(level.Weapron != null)
+            WeapronBulletAmountDto w = level.Weapron;
+            if (level.Weapron != null && weapronList.Count == 0)
             {
-                WeapronBulletAmountDto w = level.Weapron;
-                weapronList.Clear();
+               
                 weapronList.Add(new MachineGun(game.machinegunSound, w.Automata));
                 weapronList.Add(new ShotGun(game.shotgunSound, w.Shotgun));
-                weapronList[0].InjectPerk(new MachineGunPairPerk());
-                weapronList[1].InjectPerk(new ShotGunDoubleBarreledPerk());
+            } else
+            {
+                weapronList[0].SetAmmunition(w.Automata);
+                weapronList[1].SetAmmunition(w.Shotgun);
             }
         }
 
@@ -92,8 +93,9 @@ namespace spacebot.map_service
         public void DisposeLevel()
         {
             levelGameObjects.ForEach((o) => { game.Components.Remove(o as DrawableGameComponent); });
-            
-            
+            game.Components.Remove(game.hud);
+            game.Components.Remove(game.hero);
+
             levelGameObjects.Clear();
             float result = 0;
             for (int i = 0; i < game.wList.Count; i++)

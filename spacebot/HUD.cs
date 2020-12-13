@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework;
 
 namespace spacebot
 {
-    class HUD: DrawableGameComponent
+    public class HUD: DrawableGameComponent
     {
         Game1.Game1 game;
         Vector2 posForShotgun = new Vector2(0, 680);

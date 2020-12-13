@@ -73,7 +73,9 @@
     <Compile Include="IDamaged.cs" />
     <Compile Include="LevelDto.cs" />
     <Compile Include="MachineGun.cs" />
+    <Compile Include="map-service\IMap.cs" />
     <Compile Include="map-service\MapBuildingService.cs" />
+    <Compile Include="map-service\ShopLevelService.cs" />
     <Compile Include="perk\MachineGunPairPerk.cs" />
     <Compile Include="perk\Perk.cs" />
     <Compile Include="perk\ShotGunDoubleBarreledPerk.cs" />

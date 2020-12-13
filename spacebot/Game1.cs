@@ -22,11 +22,11 @@ namespace Game1
         CometFactory cometFactory;
         MapBuildingService mapBuilder;
         public SpriteFont font;
-        List<string> levelList = new List<string>() { "lvl1.txt", "lvl2.txt", "lvl3.txt" };
+        List<string> levelList = new List<string>() { "lvl1.txt", "lvl2.txt", "PERK_SHOP", "lvl3.txt" };
         public string playerName;
         public List<Weapron> wList = new List<Weapron>();
         public List<float> levelScore = new List<float>();
-        HUD hud;
+        public HUD hud;
         bool hasEnded = false;
         int currentLevel = 0;
 
@@ -63,22 +63,19 @@ namespace Game1
             font = Content.Load<SpriteFont>("font");
 
             Menu menu = new Menu(this);
-            //Services.AddService(typeof(MapBuildingService), mapBuilder);
         }
 
         public void Startup()
         {
             machinegunSound = Content.Load<SoundEffect>("m_gun");
             shotgunSound = Content.Load<SoundEffect>("s_gun");
-            background = new BackgroundImage(this, Content.Load<Texture2D>("background"));
             enemyFactory = new EnemyFactory(this, collidableItems);
             cometFactory = new CometFactory(this, Content.Load<Texture2D>("meteor"));
             bulletFactory = new BulletFactory(this);
-            hud = new HUD(this);
+            
 
             AnimationFactory.Initialize(this, Content.Load<Texture2D>("explosion"), Content.Load<SoundEffect>("death"));
-            hero = new Hero(this, Content.Load<Texture2D>("hero"), new Vector2(12, 650));
-
+           
             resultRepository = new ResultSaveService();
 
             LoadNewLevel();
@@ -88,14 +85,28 @@ namespace Game1
         {
             if (currentLevel < levelList.Count)
             {
-                StreamReader file = File.OpenText(levelList[currentLevel++]);
-                mapBuilder = new MapBuildingService(file, enemyFactory, cometFactory, this);
-                mapBuilder.BuildMap(wList);
-                file.Close();
-                hero.SetPosition(new Vector2(12, 650));
-                hero.Refueling();
-                hero.Weapron = wList;
+                string lvlName = levelList[currentLevel++];
+                if (lvlName != "PERK_SHOP")
+                {
+                    
+                    GraphicsDevice.Clear(Color.Black);
+                    
+                    background = new BackgroundImage(this, Content.Load<Texture2D>("background"));
+                    StreamReader file = File.OpenText(lvlName);
+                    mapBuilder = new MapBuildingService(file, enemyFactory, cometFactory, this);
+                    mapBuilder.BuildMap(wList);
+                    file.Close();
+                    hud = new HUD(this);
+                    hero = new Hero(this, Content.Load<Texture2D>("hero"), new Vector2(12, 650));
+                    hero.Refueling();
+                    hero.Weapron = wList; 
+                }
+                else
+                {
+                    ShopLevelService service = new ShopLevelService(this);
+                }
             }
+            
             else
             {
                 UserResultDto userResult = new UserResultDto();

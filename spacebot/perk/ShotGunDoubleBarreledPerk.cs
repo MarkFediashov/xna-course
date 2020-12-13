@@ -18,10 +18,15 @@ namespace spacebot.perk
             Weapron.shotImpl(game, start, end);
             Task.Factory.StartNew(() =>
             {
-                Thread.Sleep(100);
+                Thread.Sleep(110);
                 Weapron.shotImpl(game, start, end);
                 Weapron.PlaySound();
             });
+        }
+
+        public override string GetPerkDescription()
+        {
+            return "The most powerful development of galaxy army:\nin open place you can kill half\nof enemies on level.";
         }
 
     }

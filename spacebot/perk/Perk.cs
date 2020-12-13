@@ -15,7 +15,8 @@ namespace spacebot.perk
 {
     public interface IPerk<out T> where T: Weapron
     {
-       void AlterShootImpl(Game1.Game1 game, Vector2 start, Vector2 end);
-       void InjectWeapron(Weapron weapron);
+        void AlterShootImpl(Game1.Game1 game, Vector2 start, Vector2 end);
+        void InjectWeapron(Weapron weapron);
+        string GetPerkDescription();
     }
 }

@@ -2,8 +2,8 @@
   "LevelName":"lvl1",
   "Timeout":132,
   "Weapron":{
-    "automata":20,
-    "shotgun":3
+    "automata":25,
+    "shotgun":2
   },
   "MapLayout":[
     [0,0,0,0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2, 0, 0],

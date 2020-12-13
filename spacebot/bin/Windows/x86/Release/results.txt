@@ -1,0 +1,1 @@
+[{"name":"MARKEnter","datetime":"13.12.2020","result":1030.2197265625}]

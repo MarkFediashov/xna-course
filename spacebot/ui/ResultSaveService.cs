@@ -17,8 +17,8 @@ namespace spacebot.ui
         public ResultSaveService()
         {
             file = File.Open(FileName, FileMode.OpenOrCreate);
-            byte[] arr = new byte[1024];
-            file.Read(arr, 0, 1024);
+            byte[] arr = new byte[65535];
+            file.Read(arr, 0, 65535);
 
             string data = Encoding.ASCII.GetString(arr);
 
@@ -27,6 +27,7 @@ namespace spacebot.ui
             {
                 userResults = new List<UserResultDto>();
             }
+            file.Close();
         }
 
         public void AddResult(UserResultDto result)
@@ -36,7 +37,7 @@ namespace spacebot.ui
             userResults.Add(result);
             string serializedData = JsonConvert.SerializeObject(userResults);
 
-            var outstream = file;
+            var outstream = File.Open(FileName, FileMode.OpenOrCreate);
             outstream.Seek(0, SeekOrigin.End);
             byte[] temp = Encoding.ASCII.GetBytes(serializedData);
             int count = temp.Length;

@@ -20,5 +20,10 @@ namespace spacebot.perk
             game.bulletFactory.CreateBullet(start, end);
             game.bulletFactory.CreateBullet(start, end + offset);
         }
+
+        public override string GetPerkDescription()
+        {
+            return "Good for destroy whole line of enemy:\nit give you chance for multiple kill at one shot.";
+        }
     }
 }
