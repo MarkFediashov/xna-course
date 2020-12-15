@@ -14,6 +14,12 @@ namespace spacebot.ui
         static readonly string FileName = "results.txt";
         FileStream file;
         List<UserResultDto> userResults;
+
+        public List<UserResultDto> GetUserResults()
+        {
+            return userResults;
+        }
+
         public ResultSaveService()
         {
             file = File.Open(FileName, FileMode.OpenOrCreate);

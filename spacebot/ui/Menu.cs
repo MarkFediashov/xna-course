@@ -19,6 +19,10 @@ namespace spacebot.ui
         protected Game1.Game1 game;
         protected LauncherItem[] items;
         int activeIndex = 0;
+        List<UserResultDto> userResults;
+        Vector2 baseScorePos = new Vector2(300, 30);
+
+        bool shouldDrawResult = false;
 
         StringBuilder builder = new StringBuilder();
 
@@ -34,7 +38,7 @@ namespace spacebot.ui
         {
             items = new LauncherItem[3];
             items[0] = new LauncherItem(game, "Start", Startupt);
-            items[1] = new LauncherItem(game, "About", () => { });
+            items[1] = new LauncherItem(game, "About", DrawScoreResults);
             items[2] = new LauncherItem(game, "Exit", Exit);
         }
 
@@ -48,10 +52,39 @@ namespace spacebot.ui
             });
         }
 
+        private void DrawScoreResults()
+        {
+            userResults = game.resultRepository.GetUserResults();
+            userResults.Sort();
+            shouldDrawResult = true;
+        }
+
         private void Exit()
         {
             game.Exit();
             LauncherItem.ResetAll();
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            SpriteBatch batch = (SpriteBatch)game.Services.GetService(typeof(SpriteBatch));
+            if (shouldDrawResult)
+            {
+                int max = userResults.Count > 22 ? 22 : userResults.Count;
+                for(int i = 0; i < max; i++)
+                {
+                    string record = userResults[i].name + "  |  " + string.Format("{0:0.00}", userResults[i].result) + "  |  " + userResults[i].datetime;
+                    Color c = Color.White;
+                    if (i == 0)
+                    {
+                        c = Color.SteelBlue;
+                    }
+                    batch.DrawString(game.font, record, baseScorePos, c);
+                    baseScorePos.Y += 30;
+                }
+                shouldDrawResult = false;
+            }
+            base.Draw(gameTime);
         }
 
         private void Startupt()
@@ -100,8 +133,6 @@ namespace spacebot.ui
             {
                 items[activeIndex].Select();
                 Disable();
-                game.Components.Remove(this);
-                this.Dispose();
             }
 
         }

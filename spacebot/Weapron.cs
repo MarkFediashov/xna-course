@@ -65,7 +65,10 @@ namespace Game1
                 }
                 if (stopGame)
                 {
-                    Task.Factory.StartNew(() => { g.Exit(); });
+                    
+                    Task.Factory.StartNew(() => {
+                        Thread.Sleep(5000);
+                        g.Exit(); });
                 }
             }
         }

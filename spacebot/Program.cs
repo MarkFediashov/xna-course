@@ -15,7 +15,15 @@ namespace Game1
         static void Main()
         {
             using (var game = new Game1())
-                game.Run();
+            {
+                try {
+                    game.Run();
+                }
+                catch
+                {
+
+                }
+            }
         }
     }
 #endif

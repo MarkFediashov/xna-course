@@ -73,7 +73,7 @@ namespace spacebot.ui
                     }
                     if (keys[0] == Keys.Enter)
                     {
-                        OnComplete(builder.ToString());
+                        OnComplete(builder.Replace("Enter", "").ToString());
                         Game.Components.Remove(this);
                     }
                     Disable();

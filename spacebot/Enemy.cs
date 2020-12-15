@@ -53,7 +53,7 @@ namespace Game1
             return true;
         }
 
-        protected override void Dispose(bool disposing)
+        public void Destroy(bool disposing)
         {
             var temp = new Vector2(position.X - 50, position.Y - 70);
             AnimationFactory.SpawnAnimation(temp);

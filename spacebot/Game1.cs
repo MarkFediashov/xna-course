@@ -34,6 +34,7 @@ namespace Game1
 
         public BulletFactory bulletFactory;
         public List<IColliding> collidableItems = new List<IColliding>();
+        public List<IColliding> enemies = new List<IColliding>();
 
         public SoundEffect machinegunSound;
         public SoundEffect shotgunSound;
@@ -61,7 +62,7 @@ namespace Game1
             themeMusic.Play(volume: 0.1f, pitch:0, pan:0);   
 
             font = Content.Load<SpriteFont>("font");
-
+            resultRepository = new ResultSaveService();
             Menu menu = new Menu(this);
         }
 
@@ -75,10 +76,9 @@ namespace Game1
             
 
             AnimationFactory.Initialize(this, Content.Load<Texture2D>("explosion"), Content.Load<SoundEffect>("death"));
-           
-            resultRepository = new ResultSaveService();
 
             LoadNewLevel();
+            int a = 2;
         }
 
         public void LoadNewLevel()
@@ -99,7 +99,8 @@ namespace Game1
                     hud = new HUD(this);
                     hero = new Hero(this, Content.Load<Texture2D>("hero"), new Vector2(12, 650));
                     hero.Refueling();
-                    hero.Weapron = wList; 
+                    hero.Weapron = wList;
+
                 }
                 else
                 {
@@ -129,9 +130,17 @@ namespace Game1
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            {
+                try
+                {
+                    Exit();
 
+                }
+                catch
+                {
 
+                }
+            }
             base.Update(gameTime);
         }
 

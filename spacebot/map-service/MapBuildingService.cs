@@ -56,11 +56,13 @@ namespace spacebot.map_service
                     if (currentRow[j] == 2)
                     {
                         gameObject = enemyFactory.CreateEnemy(position, EnemyType.common);
+                        game.enemies.Add(gameObject);
                         enemyAmount++;
                     }
                     if (currentRow[j] == 3)
                     {
                         gameObject = enemyFactory.CreateEnemy(position, EnemyType.ghost);
+                        game.enemies.Add(gameObject);
                         enemyAmount++;
                     }
                     if (gameObject != null)

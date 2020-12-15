@@ -15,6 +15,7 @@ namespace spacebot
         Game1.Game1 game;
         Vector2 posForShotgun = new Vector2(0, 680);
         Vector2 posForAutomata = new Vector2(40, 680);
+        Vector2 posForHealth = new Vector2(540, 680);
         Vector2 posForFuel = new Vector2(180, 680);
         Vector2 fillOffset = new Vector2(9, 8);
         Texture2D energyBar;
@@ -38,6 +39,7 @@ namespace spacebot
             SpriteBatch batch = (SpriteBatch)Game.Services.GetService(typeof(SpriteBatch));
             batch.DrawString(game.font, shotgunStr, posForShotgun, Color.White);
             batch.DrawString(game.font, automataStr, posForAutomata, Color.White);
+            batch.DrawString(game.font, game.hero.health.ToString(), posForHealth, Color.White);
             batch.Draw(energyBar, posForFuel, Color.White);
             float scale = (float)game.hero.Fuel / 1000;
             Vector2 scaleVector = new Vector2(scale, 1f);

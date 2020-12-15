@@ -57,8 +57,9 @@ namespace Game1
             died.ForEach((element) =>
             {
                 (Game as Game1).collidableItems.Remove(element);
+                (Game as Game1).enemies.Remove(element);
                 Game.Components.Remove(element as IGameComponent);
-                (element as DrawableGameComponent).Dispose();
+                (element as Enemy).Destroy(false);
             });
 
             if (bulletHasCollide)

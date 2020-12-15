@@ -6,11 +6,17 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 
+using System.Threading.Tasks;
+using System.Threading;
+using spacebot;
+
 namespace Game1
 {
     public class Hero : AbstractMovableComponent
     {
         Weapron currentWeapron;
+        public int health { get; private set;  }
+        bool canBeDamaged = true;
         public double Fuel { get; private set; }
         private List<Weapron> weapron;
         public List<Weapron> Weapron
@@ -30,7 +36,7 @@ namespace Game1
 
         public Hero(Game game, Texture2D texture, Vector2 position) : base(game, texture, position)
         {
-
+            health = 10;
         }
 
         public override void Initialize()
@@ -38,9 +44,40 @@ namespace Game1
             base.Initialize();
         }
 
+        private void Damage()
+        {
+            if (canBeDamaged)
+            {
+                health--;
+                canBeDamaged = false;
+                
+                Task.Factory.StartNew(() =>
+                {
+                    if (health > 0)
+                    {
+                        Thread.Sleep(500);
+                        canBeDamaged = true;
+                    }
+                    else
+                    {
+                        AnimationFactory.SpawnAnimation(position);
+                        Game.Components.Remove(this);
+                        Thread.Sleep(1500);
+                        Game.Exit();
+                    }
+                });
+            }
+        }
+
         private bool IsIntersectWithGameObject()
         {
             List<IColliding> gObj = (Game as Game1).collidableItems;
+            return gObj.Exists((obj) => { return GetBounds().Intersects(obj.GetBounds()); });
+        }
+
+        private bool IsIntersectsWithEnemy()
+        {
+            List<IColliding> gObj = (Game as Game1).enemies;
             return gObj.Exists((obj) => { return GetBounds().Intersects(obj.GetBounds()); });
         }
 
@@ -57,9 +94,14 @@ namespace Game1
                 addedVelocity = 0;
 
             float speed = baseVelocity + addedVelocity;
-            float dv = speed * gameTime.ElapsedGameTime.Milliseconds / 100; ;
+            float dv = speed * gameTime.ElapsedGameTime.Milliseconds / 100;
+            if (IsIntersectsWithEnemy())
+            {
+                Damage();
+            }
             if (!IsIntersectWithGameObject())
             {
+                
                 if (Keyboard.GetState().IsKeyDown(Keys.A))
                 {
                     if (position.X >= leftScreenBound)
@@ -76,6 +118,10 @@ namespace Game1
                         position.X += dv;
                     if (IsIntersectWithGameObject())
                     {
+                        if (IsIntersectsWithEnemy())
+                        {
+                            Damage();
+                        }
                         position = previousPosition;
                     }
                     previousPosition = position;
@@ -86,6 +132,10 @@ namespace Game1
                         position.Y += dv;
                     if (IsIntersectWithGameObject())
                     {
+                        if (IsIntersectsWithEnemy())
+                        {
+                            Damage();
+                        }
                         position = previousPosition;
                     }
                     previousPosition = position;
@@ -96,6 +146,10 @@ namespace Game1
                         position.Y -= dv;
                     if (IsIntersectWithGameObject())
                     {
+                        if (IsIntersectsWithEnemy())
+                        {
+                            Damage();
+                        }
                         position = previousPosition;
                     }
                     previousPosition = position;
@@ -120,6 +174,8 @@ namespace Game1
             {
                 currentWeapron = weapron[0];
             }
+
+           
 
         }
 
