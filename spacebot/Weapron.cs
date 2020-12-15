@@ -58,6 +58,15 @@ namespace Game1
                 startReload();
 
                 ammunition--;
+                bool stopGame = true;
+                foreach(Weapron w in g.wList)
+                {
+                    stopGame = stopGame && w.IsEmptyAmmo();
+                }
+                if (stopGame)
+                {
+                    Task.Factory.StartNew(() => { g.Exit(); });
+                }
             }
         }
 
@@ -78,6 +87,11 @@ namespace Game1
         public int GetAvailableAmmunition()
         {
             return ammunition;
+        }
+
+        public bool IsEmptyAmmo()
+        {
+            return GetAvailableAmmunition() == 0;
         }
 
         public void SetAmmunition(int val)
