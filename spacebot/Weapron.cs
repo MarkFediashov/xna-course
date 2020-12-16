@@ -65,10 +65,16 @@ namespace Game1
                 }
                 if (stopGame)
                 {
-                    
-                    Task.Factory.StartNew(() => {
-                        Thread.Sleep(5000);
-                        g.Exit(); });
+
+                    Task.Factory.StartNew(() =>
+                    {
+                        Thread.Sleep(3500);
+                        if (g.enemies.Count == 0)
+                        {
+                            g.Exit();
+                        }
+                    });
+          
                 }
             }
         }
