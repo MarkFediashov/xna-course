@@ -69,7 +69,7 @@ namespace Game1
                     Task.Factory.StartNew(() =>
                     {
                         Thread.Sleep(3500);
-                        if (g.enemies.Count == 0)
+                        if (g.enemies.Count != 0 && GetAvailableAmmunition() == 0)
                         {
                             g.Exit();
                         }
