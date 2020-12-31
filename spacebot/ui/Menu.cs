@@ -8,10 +8,6 @@ using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Audio;
-
-using spacebot;
-using Game1;
 namespace spacebot.ui
 {
     public class Menu : DrawableGameComponent

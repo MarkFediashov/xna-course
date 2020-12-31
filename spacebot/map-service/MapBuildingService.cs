@@ -2,18 +2,10 @@
 using System;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Microsoft.Xna.Framework;
 
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Game1;
-using spacebot;
 
-using spacebot.perk;
 
 namespace spacebot.map_service
 { 

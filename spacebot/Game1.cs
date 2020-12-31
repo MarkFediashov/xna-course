@@ -74,11 +74,9 @@ namespace Game1
             cometFactory = new CometFactory(this, Content.Load<Texture2D>("meteor"));
             bulletFactory = new BulletFactory(this);
             
-
             AnimationFactory.Initialize(this, Content.Load<Texture2D>("explosion"), Content.Load<SoundEffect>("death"));
 
             LoadNewLevel();
-            int a = 2;
         }
 
         public void LoadNewLevel()
@@ -88,7 +86,6 @@ namespace Game1
                 string lvlName = levelList[currentLevel++];
                 if (lvlName != "PERK_SHOP")
                 {
-                    
                     GraphicsDevice.Clear(Color.Black);
                     
                     background = new BackgroundImage(this, Content.Load<Texture2D>("background"));
@@ -100,7 +97,6 @@ namespace Game1
                     hero = new Hero(this, Content.Load<Texture2D>("hero"), new Vector2(12, 650));
                     hero.Refueling();
                     hero.Weapron = wList;
-
                 }
                 else
                 {

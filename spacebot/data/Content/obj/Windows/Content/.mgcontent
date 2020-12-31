@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/1.png</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/2.png</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/3.png</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/4.png</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/death.wav</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/e1.png</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/energy-bar.png</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/energy-bar-fill.png</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/explosion.png</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/font.spritefont</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/ghost.png</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/m_gun.mp3</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/meteor.png</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/s_gun.wav</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/shot1.png</File>
+    <File>C:/Users/User/Documents/Visual Studio 2015/Projects/spacebot/spacebot/Content/theme.mp3</File>
+  </SourceFiles>
+  <DestFiles>
+    <File>hero.png</File>
+    <File>background.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

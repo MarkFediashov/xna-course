@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="spacebot.map_service.MapBuildingService" Collapsed="true">
+    <Position X="17.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABABAgAEAAgAAAAAAABCAEAABAIBAAEAAAAAAA=</HashCode>
+      <FileName>map-service\MapBuildingService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="spacebot.map_service.ShopLevelService" Collapsed="true">
+    <Position X="13.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAEAAAAABAAAAAAAAAAIAQ=</HashCode>
+      <FileName>map-service\ShopLevelService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="spacebot.perk.MachineGunPairPerk" Collapsed="true">
+    <Position X="9.25" Y="9.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>perk\MachineGunPairPerk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="spacebot.perk.ShotGunDoubleBarreledPerk" Collapsed="true">
+    <Position X="6.25" Y="9.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>perk\ShotGunDoubleBarreledPerk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="spacebot.perk.WeapronPerk&lt;T&gt;" Collapsed="true">
+    <Position X="8" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACEAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>perk\WeapronPerk.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.758" />
+  </Class>
+  <Class Name="spacebot.ui.LauncherItem" Collapsed="true">
+    <Position X="12" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgCgAAAAAAAAAlBAAAAAIBAAAAAgAAAIAAAAQAAAAAA=</HashCode>
+      <FileName>ui\LauncherItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="spacebot.ui.Menu" Collapsed="true">
+    <Position X="13.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAQAAAAAAAgAIAAgAAACEAAAKAAAIIACiAAAAAAg=</HashCode>
+      <FileName>ui\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game1.AbstractMovableComponent" Collapsed="true">
+    <Position X="16.75" Y="4.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAaAAASAAAkAAwAgAAAAIACAAAAAAkAAAAACQAEAABA=</HashCode>
+      <FileName>AbstractMovableComponent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Game1.BackgroundImage" Collapsed="true">
+    <Position X="11.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BackgroundImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game1.Bullet" Collapsed="true">
+    <Position X="20.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAACAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game1.BulletFactory" Collapsed="true">
+    <Position X="21.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAIAAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAkAAAAA=</HashCode>
+      <FileName>BulletFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="spacebot.Comet" Collapsed="true">
+    <Position X="18.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKAAACAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Comet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="spacebot.CometFactory" Collapsed="true">
+    <Position X="18" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAgAIAAAAAAAAAAA=</HashCode>
+      <FileName>CometFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game1.EnemyFactory" Collapsed="true">
+    <Position X="19.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAACAAAAAAAAAAAgJAAAAAAAIAAA=</HashCode>
+      <FileName>EnemyFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game1.Game1" Collapsed="true">
+    <Position X="15" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBYAEEkgAECAQwIAoAEAAACBAAAAMAgRBAAEAAAAIAQ=</HashCode>
+      <FileName>Game1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="spacebot.GhostEnemy" Collapsed="true">
+    <Position X="15.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAIAAAAAAAAAKAAAAQAAABABAA=</HashCode>
+      <FileName>GhostEnemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game1.Hero" Collapsed="true">
+    <Position X="13.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QASAAECAAAAIAwAAAAAAAAQAAAAAAgAAAgAAAACAEAg=</HashCode>
+      <FileName>Hero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="spacebot.HUD" Collapsed="true">
+    <Position X="14.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAIAgAAgAAACAAAAAAAAAAAIAIAAAQAAAAAgA=</HashCode>
+      <FileName>HUD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="spacebot.LevelDto" Collapsed="true">
+    <Position X="17.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAIIAEAAAAAAAAA=</HashCode>
+      <FileName>LevelDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="spacebot.WeapronBulletAmountDto" Collapsed="true">
+    <Position X="19.5" Y="9" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>LevelDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game1.MachineGun" Collapsed="true">
+    <Position X="11" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>MachineGun.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game1.Program" Collapsed="true">
+    <Position X="16.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game1.ShotGun" Collapsed="true">
+    <Position X="5.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>ShotGun.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game1.Enemy" Collapsed="true">
+    <Position X="17" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAaAAACAAAAAIAAAAAAAAAAAAABAAAAAABQAAAAAAAA=</HashCode>
+      <FileName>Enemy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="spacebot.ui.UserResultDto" Collapsed="true">
+    <Position X="22" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAQABAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ui\UserResultDto.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="spacebot.ui.ResultSaveService" Collapsed="true">
+    <Position X="15.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAIAAAAAAAABAACAABAAAA=</HashCode>
+      <FileName>ui\ResultSaveService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game1.Weapron" Collapsed="true">
+    <Position X="8.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAARAAAAAAAQAAgQAoEgkAAAEAAgASAAAAAAAAAA=</HashCode>
+      <FileName>Weapron.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="spacebot.map_service.IMap" Collapsed="true">
+    <Position X="15.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>map-service\IMap.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="spacebot.perk.IPerk&lt;T&gt;" Collapsed="true">
+    <Position X="8" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>perk\Perk.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Game1.IColliding" Collapsed="true">
+    <Position X="16.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>IColliding.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Game1.EnemyType" Collapsed="true">
+    <Position X="15.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>EnemyFactory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="Game1.Shot" Collapsed="true">
+    <Position X="6.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Weapron.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

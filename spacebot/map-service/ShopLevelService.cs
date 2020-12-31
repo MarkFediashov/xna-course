@@ -37,7 +37,6 @@ namespace spacebot.map_service
                 if (!called)
                 {
                     weapron.InjectPerk(injectedPerk);
-                    //AllPerks.Remove(injectedPerk);
                     game.LoadNewLevel();
                     called = true;
                 } 

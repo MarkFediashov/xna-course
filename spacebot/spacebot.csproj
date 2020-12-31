@@ -70,7 +70,6 @@
     <Compile Include="Hero.cs" />
     <Compile Include="HUD.cs" />
     <Compile Include="IColliding.cs" />
-    <Compile Include="IDamaged.cs" />
     <Compile Include="LevelDto.cs" />
     <Compile Include="MachineGun.cs" />
     <Compile Include="map-service\IMap.cs" />
@@ -116,6 +115,7 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
